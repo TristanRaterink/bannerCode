@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adcombi</title>
+    <meta name="ad.size" content="width=300, height=600">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="author" content="TRGR - www.trgr.nl">
+
+    <style type="text/css">
+
+        
+    /*CSS RESET*/
+      html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+    
+    /*STYLING*/
+     
+    body{
+        cursor: pointer;
+      }
+      #banner{
+        position: absolute;
+        z-index: 0;
+        width: 970px; /* CHANGE AS NEEDED */
+        height: 250px; /* CHANGE AS NEEDED */
+        margin: auto;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        overflow: hidden;
+        text-overflow: clip;
+        background-color: white;
+        background-size: 100% 100%;
+        opacity: 0;
+        cursor: pointer
+      }
+      #border {
+        border-radius: 0px 0px 0px 0px;
+        -moz-border-radius: 0px 0px 0px 0px;
+        -webkit-border-radius: 0px 0px 0px 0px;
+        border: 1px solid #000000;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        opacity: 0.2;
+          pointer-events: none;
+      }
+      
+     .full {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+      }
+        
+     
+      .bg {
+            background-size: cover;
+            position: absolute;
+            top: -140px;
+            left: -230px;
+            width: 125%;
+            height: 250%;
+            
+        }
+        
+        .whitebg {
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          height: 172px;
+          background: white;
+        }
+      
+        .arrowlong {
+            clip: rect(566px, 300px, 600px, 0px);
+        }
+        
+           .arrowup {
+            clip: rect(566px, 266px, 600px, 0px);
+        }
+
+               .arrowdown {
+            clip: rect(566px, 266px, 600px, 0px);
+        }
+        
+        .cta-over {
+            opacity: 0;
+        }
+        
+        .vWiel {
+            position: absolute;
+            width: 71px;
+            height: 71px;
+            left: 205px;
+            top: 80px;
+        }
+        
+           .vWiel2 {
+            position: absolute;
+            width: 71px;
+            height: 71px;
+            left: 205px;
+            top: 80px;
+            opacity: 0;
+        }
+        
+        
+        .aWiel {
+            position: absolute;
+            width: 69.5px;
+            height: 69.5px;
+            left: 395px;
+            top: 76px;
+        }
+        
+        .aWiel2 {
+          position: absolute;
+          width: 69.5px;
+          height: 69.5px;
+          left: 395px;
+          top: 76px;
+          opacity: 0;
+        }
+        
+        .redbutton {
+            position: absolute;
+            width: 37px;
+            height: 37px;
+            left: 825px;
+            top: 8px;
+        }
+        
+        .orangebutton {
+            position: absolute;
+            width: 37px;
+            height: 37px;
+            left: 870px;
+            top: 8px;
+        }
+        
+         .bluebutton {
+            position: absolute;
+            width: 37px;
+            height: 37px;
+            left: 915px;
+            top: 8px;
+        }
+        
+        .wheels {
+         position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+        }
+        
+        .wheel1 {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            left: 900px;
+            top: 15px;
+           
+        }
+        
+        .wheel2 {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+          left: 840px;
+            top: 15px;
+        
+        }
+        
+        .cta2 {
+            opacity: 0;
+        }
+    
+        .light {
+            opacity: 0;
+        }
+        
+        .redlight {
+            opacity: 0;
+        }
+        
+        .text4{
+            opacity: 0;
+        }
+
+      
+      </style>
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.20.4_3dc5474a75410cb768741e402b80d908_min.js">//google hosted greensock</script>
+  </head>
+<!-- HTML -->
+  <body>
+
+    <div id="banner">
+
+        <img src="foto.png" class="foto bg" />
+        <img src="logo1.png" class="logo1 full" />
+        <img src="blackbg.png" class="bg1 full" />
+
+        
+        <div class="light">
+        <img src="light.png" class="light full" />
+  
+        </div>
+          <div class="redlight">
+        <img src="redlight.png" class="redlight full" />
+  
+        </div>
+        
+        <img src="logo2.png" class="bg1 full" />
+        <img src="cta.png" class="cta full" />
+        <img src="cta2.png" class="cta2 full" />
+        
+        <img src="text1.png" class="text1 full" />
+        <img src="text2.png" class="text2 full" />
+        <img src="text3.png" class="text3 full" />
+        <img src="text4.png" class="text4 full" />
+
+
+      
+
+
+
+  <div class="car-container full">
+             <img src="blauwetesla.png" class="Btesla full" />
+             <img src="rodetesla.png" class="Rtesla full" />
+            <img src="oranjetesla.png" class="Otesla full" />
+                <div class="vWiel">
+                <img src="vWiel.png" class="vWiel full" />
+                </div>
+            <div class="aWiel">
+              <img src="aWiel.png" class="aWiel full" />
+            </div>
+            <div class="aWiel2">
+              <img src="aWiel2.png" class="aWiel2 full" />
+            </div>
+            <div class="vWiel2">
+                <img src="vWiel2.png" class="vWiel2 full" />
+            </div>
+  </div>
+        
+  <div class="buttons"> 
+        <div class="redbutton" id="redbutton">
+            <img src="rodebutton.png" class="full" />
+        </div>  
+        <div class="orangebutton" id="orangebutton">
+            <img src="buttonoranje.png" class="full" />
+        </div>   
+        <div class="bluebutton" id="bluebutton">
+            <img src="buttonblauw.png" class="full" />  
+        </div>
+      </div>
+        
+ <div class="wheels">
+ <div class="wheel1" id="wheel1">
+  <img src="chooseWiel1.png" class="full" />
+ </div> 
+ <div class="wheel2" id="wheel2">
+  <img src="chooseWiel2.png" class="full" />
+ </div> 
+    
+        
+ 
+ </div>
+        
+          
+          
+        
+        
+
+<div id="border" class="border"></div>
+
+    </div>
+
+<!-- ANIMATION -->
+    <script type="text/javascript">
+
+            (function () {
+                
+                
+                var interaction = false;
+              
+                 
+                //mouse over action
+                function mouseOverFunction() {
+                    
+                    if (interaction = false){
+                    interaction = true;
+                    console.log(interaction);
+                   } else {
+                       interaction = false;
+                   }
+           
+
+
+                  TweenMax.to('.cta2', 0.2, { opacity: 1}); 
+                }
+
+                //mouse out action
+                function mouseOutFunction() {
+
+                    
+                  TweenMax.to('.cta2', 0.2, {opacity: 0}); 
+
+                }
+                
+                
+                function inRed(){
+                    
+                    TweenMax.to('.redbutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                    TweenMax.to('.bluebutton, .orangebutton', 0.1, {scale: 1, delay: 0.1}); 
+                    TweenMax.to('.Btesla', 0.1, {opacity: 0, delay: 0.1}); 
+                    TweenMax.to('.Otesla', 0.1, {opacity: 0, delay: 0.1}); 
+                    TweenMax.to('.Rtesla', 0.1, {opacity: 1}); 
+                    console.log('clicked');
+                    chooseWheels();
+
+                       }
+                
+                function inBlue(){
+                    
+                     TweenMax.to('.bluebutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                     TweenMax.to('.orangebutton, .redbutton', 0.1, {scale: 1, delay: 0.1}); 
+                     TweenMax.to('.Rtesla', 0.1, {opacity: 0, delay: 0.1}); 
+                     TweenMax.to('.Otesla', 0.1, {opacity: 0, delay: 0.1}); 
+                     TweenMax.to('.Btesla', 0.1, {opacity: 1}); 
+                     console.log('clicked');
+                     chooseWheels();
+
+                       }
+                
+                
+                function inOrange(){
+                    
+                       TweenMax.to('.orangebutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                       TweenMax.to('.bluebutton, .redbutton', 0.1, {scale: 1, delay: 0.1}); 
+ 
+                       TweenMax.to('.Btesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Rtesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Otesla', 0.1, {opacity: 1}); 
+                       console.log('clicked');
+                       chooseWheels();
+
+                       }
+                
+                function chooseWheels () {
+                 tl.to('.text2', 0.5, {opacity: 0, y: 20, x: 0, ease: Power1.easeInOut}, '+=0.5'); 
+                 tl.to('.buttons', 0.5, {opacity: 0, x: 1000, ease: Power1.easeInOut}, '-=0.5'); 
+
+                 
+                 tl.to('.text3', 0.5, {opacity: 1, y: 0, x: 0, ease: Power1.easeInOut}, '+=0.5');
+                 tl.to('.wheels', 0.5, {opacity: 1, x: 0, ease: Power1.easeInOut}, '-=0.5');
+                    
+                }
+
+                
+                function hoverRed(){
+                    
+                       TweenMax.to('.redbutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                       TweenMax.to('.bluebutton, .orangebutton', 0.1, {scale: 1, delay: 0.1}); 
+                       TweenMax.to('.Btesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Otesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Rtesla', 0.1, {opacity: 1}); 
+                       console.log('clicked');
+                   
+
+                       }
+                
+                function hoverBlue(){
+                    
+                       TweenMax.to('.bluebutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                       TweenMax.to('.orangebutton, .redbutton', 0.1, {scale: 1, delay: 0.1}); 
+                       TweenMax.to('.Rtesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Otesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Btesla', 0.1, {opacity: 1}); 
+                    
+          
+
+                       }
+                
+                
+                function hoverOrange(){
+                    
+                       TweenMax.to('.orangebutton', 0.1, {scale: 1.2, delay: 0.1}); 
+                       TweenMax.to('.bluebutton, .redbutton', 0.1, {scale: 1, delay: 0.1}); 
+
+                       TweenMax.to('.Btesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Rtesla', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.Otesla', 0.1, {opacity: 1}); 
+                  
+                
+
+                       }
+                
+                function wheel1Clicked (){
+                       
+                       TweenMax.to('.wheel2', 0.1, {scale: 1, delay: 0.1}); 
+                    
+                       TweenMax.to('.aWiel2', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.vWiel2', 0.1, {opacity: 0, delay: 0.1}); 
+                    
+                       TweenMax.to('.aWiel', 0.1, {opacity: 1, delay: 0.1}); 
+                       TweenMax.to('.vWiel', 0.1, {opacity: 1, delay: 0.1}); 
+                       wheelClicked();
+             
+                        
+                    
+                }
+                
+                 function wheel2Clicked (){
+                    
+                       TweenMax.to('.wheel1', 0.1, {scale: 1, delay: 0.1}); 
+
+                       TweenMax.to('.aWiel', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.vWiel', 0.1, {opacity: 0, delay: 0.1});
+                     
+                     
+                       TweenMax.to('.aWiell2', 0.1, {opacity: 1, delay: 0.1}); 
+                       TweenMax.to('.vWiell2', 0.1, {opacity: 1, delay: 0.1}); 
+                       wheelClicked();
+                
+                    
+                }
+                
+                
+                 function hoverWheel1 (){
+                     
+                        TweenMax.to('.wheel1', 0.1, {scale: 1.2, delay: 0.1}); 
+                        TweenMax.to('.wheel2', 0.1, {scale: 1, delay: 0.1}); 
+
+                        TweenMax.to('.aWiel2', 0.1, {opacity: 0, delay: 0.1}); 
+                        TweenMax.to('.vWiel2', 0.1, {opacity: 0, delay: 0.1}); 
+                      
+                        TweenMax.to('.aWiel', 0.1, {opacity: 1, delay: 0.1}); 
+                        TweenMax.to('.vWiel', 0.1, {opacity: 1, delay: 0.1}); 
+             
+     
+                    
+                }
+                
+                 function hoverWheel2 (){
+                       TweenMax.to('.wheel2', 0.1, {scale: 1.2, delay: 0.1}); 
+                       TweenMax.to('.wheel1', 0.1, {scale: 1, delay: 0.1}); 
+ 
+                     
+                         
+                       TweenMax.to('.aWiel', 0.1, {opacity: 0, delay: 0.1}); 
+                       TweenMax.to('.vWiel', 0.1, {opacity: 0, delay: 0.1}); 
+                     
+                       TweenMax.to('.vWiel2', 0.1, {opacity: 1, delay: 0.1}); 
+                       TweenMax.to('.aWiel2', 0.1, {opacity: 1, delay: 0.1}); 
+                     
+                    
+                }
+                
+                  
+                 function hoverWheel1Out (){
+                     
+                     TweenMax.to('.wheel1', 0.1, {scale: 1, delay: 0.1}); 
+                     TweenMax.to('.wheel2', 0.1, {scale: 1, delay: 0.1}); 
+
+                    
+                }
+                
+                 function hoverWheel2Out (){
+                     TweenMax.to('.wheel2', 0.1, {scale: 1, delay: 0.1}); 
+                     TweenMax.to('.wheel1', 0.1, {scale: 1, delay: 0.1}); 
+
+                    
+                }
+                
+                function wheelClicked (){
+                   
+                 tl.to('.text3', 0.5, {opacity: 0, y: 20, x: 0, ease: Power1.easeInOut}, '+=0.5');
+                 tl.to('.wheels', 0.5, {opacity: 1, x: 300, ease: Power1.easeInOut});
+                 tl.to('.text4', 0.5, {opacity: 1, y: 0, x: 0, ease: Power1.easeInOut}, '+=0.5');
+
+                 
+                 tl.to('.cta', 0.2, {scale: 1.2, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '-=0.2');
+                 tl.to('.cta2', 0.2, {scale: 1.2, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '-=0.2');
+                 tl.to('.cta', 0.2, {scale: 1, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '+=0.2');
+                 tl.to('.cta2', 0.2, {scale: 1, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '-=0.2');
+                 tl.to('.cta', 0.2, {scale: 1.2, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '+=0.2');
+                 tl.to('.cta2', 0.2, {scale: 1.2, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '-=0.2');
+                 tl.to('.cta', 0.2, {scale: 1, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '+=0.2');
+                 tl.to('.cta2', 0.2, {scale: 1.0, transformOrigin: '11% 70%', ease: Power1.easeInOut}, '-=0.2');
+                                    
+                 
+                    
+                }
+                
+                
+                document.getElementById("wheel1").addEventListener("mouseover", hoverWheel1, false);
+                document.getElementById("wheel2").addEventListener("mouseover", hoverWheel2, false);
+                
+                document.getElementById("wheel1").addEventListener("mouseout", hoverWheel1Out, false);
+                document.getElementById("wheel2").addEventListener("mouseout", hoverWheel2Out, false);
+                
+                document.getElementById("wheel1").addEventListener("click", wheel1Clicked, false);
+                document.getElementById("wheel2").addEventListener("click", wheel2Clicked, false);
+                
+                
+                document.getElementById("bluebutton").addEventListener("click", inBlue, false);
+                document.getElementById("orangebutton").addEventListener("click", inOrange, false);
+                document.getElementById("redbutton").addEventListener("click", inRed, false);
+                 
+                document.getElementById("bluebutton").addEventListener("mouseover", hoverBlue, false);
+                document.getElementById("orangebutton").addEventListener("mouseover", hoverOrange, false);
+                document.getElementById("redbutton").addEventListener("mouseover", hoverRed, false);
+                
+                
+                document.getElementById("banner").addEventListener("mouseover", mouseOverFunction, false);
+                document.getElementById("banner").addEventListener("mouseout", mouseOutFunction, false);
+
+                
+                
+                //used for checking the timing
+               
+                function logTime() {
+                    // console.log(tl.time());
+                }
+
+                'use strict';
+
+                TweenMax.set('#banner', { opacity: 1 });
+                 TweenMax.set('.text3', {opacity: 0, y: -20, x: 0, ease: Power1.easeInOut});
+                 TweenMax.set('.wheels', {opacity: 0, x: 1000, ease: Power1.easeInOut});
+                 
+
+                var tl = new TimelineMax();
+
+
+                tl.from('.car-container', 2, {x: 1000 }, '-=0');
+                tl.from('.vWiel img', 2, {rotation: 720}, '-=2');
+                tl.from('.aWiel img', 2, {rotation: 720}, '-=2');
+                tl.to('.logo1', 0.5, {x: -200}, '+=0.5');
+                tl.from('.bg1', 0.5, {x: -500}, '-=0.5');
+//                 tl.from('.cta2', 0.5, {x: -500}, '-=0.5');
+                tl.from('.cta', 0.5, {x: -500}, '-=0.5');
+                tl.from('.cta2', 0.5, {x: -500}, '-=0.5');
+                tl.from('.text1', 0.5, {x:  -500}, '-=0.5');
+                tl.to('.Rtesla', 0.5, {opacity: 0}, '+=1.5');
+
+                tl.from('.Btesla', 0.5, {opacity: 0}, '-=1.5');
+                tl.to('.Btesla', 0.5, {opacity: 0}, '+=1.5');
+               
+                tl.from('.Otesla', 0.5, {opacity: 0}, '-=1');
+                
+                tl.to('.text1', 0.5, {opacity: 0, y: 20, x: 0, ease: Power1.easeInOut}, '+=0.2'); 
+                tl.from('.text2', 0.5, {opacity: 0, y: -20, x: 0, ease: Power1.easeInOut}, '+=0.1');
+                tl.from('.bluebutton', 0.5, {y: -100}, '-=0.5');
+                tl.from('.orangebutton', 0.5, {y: -100}, '-=0.3');
+                tl.from('.redbutton', 0.5, {y: -100}, '-=0.3');
+
+                
+                tl.to('.light', 0.2, {opacity: 1}, '+=0.2');
+                tl.to('.light', 0.2, {opacity: 0}, '+=0.2');
+                tl.to('.redlight', 0.2, {opacity: 1}, '-=0.2');
+                tl.to('.redlight', 0.2, {opacity: 0}, '-=0.2');
+                
+              
+                
+
+
+            })();
+
+    </script>
+  </body>
+</html>
